@@ -15,8 +15,7 @@ import gaugette.platform
 class SPI:
     def __init__(self, bus, device):
            
-        if gaugette.platform.isRaspberryPi:
-            import spidev
+        if gaugette.platform.isRaspberryPi or gaugette.platform.isCHIP:
             import spidev
             self.spi = spidev.SpiDev()
             self.spi.open(bus, device)
@@ -25,13 +24,6 @@ class SPI:
         elif gaugette.platform == gaugette.platform.isBeagleBoneBlack:
             import Adafruit_BBIO.SPI
             self.spi = Adafruit_BBIO.SPI.SPI(bus, device)
-            self.writebytes = self.spi.writebytes
-
-	elif gaugette.platform.isCHIP:
-            import spidev
-            import spidev
-            self.spi = spidev.SpiDev()
-            self.spi.open(bus, device)
             self.writebytes = self.spi.writebytes
 
         else:
