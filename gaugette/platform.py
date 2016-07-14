@@ -25,7 +25,7 @@ import re
 UNKNOWN          = 0
 RASPBERRY_PI     = 1
 BEAGLEBONE_BLACK = 2
-CHIP             = 5
+CHIP             = 3
 
 isBeagleBoneBlack = False
 isRaspberryPi = False
